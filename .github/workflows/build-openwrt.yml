@@ -60,6 +60,11 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+    
+      # 添加红米ax6 编译选项
+    - name: Redmi ax6 support
+      run: |
+        cp -rf $GITHUB_WORKSPACE/generic.mk openwrt/target/linux/ipq807x/image/generic.mk
 
     - name: Load custom feeds
       run: |
